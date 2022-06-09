@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แชร์เลย รับทันที</title>
+<meta property="og:locale" content="th_TH">
+<meta property="og:type" content="game mobile">
+<meta property="og:image" content="/wowslot369/logo.jpg">
+<meta property="og:url" content="https://huay24hr.github.io" />
+<meta property="og:type" content="games" />
+<meta property="og:title" content="ชวนเพื่อนมาเล่นกับเรา รับเงินตลอดชีพ / รัยค่าคอมตลอดชีพ/ รับเครดิตฟรี 10 %" />
+<meta property="og:description" content="ชวนเพื่อนมาเล่นกับเรา รับเงินตลอดชีพ / รัยค่าคอมตลอดชีพ/ รับเครดิตฟรี 10 %" />
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+        body {
+            background:url('bg.jpg');
+        }
+    </style>
+  </head>
+<body>
+<div class="cover-container d-flex align-items-center">
+<div class="text-center mx-auto">
+<img src="/wowslot369/title.png" class="img-fluid" />
+<div class="text-danger font-weight-bold mt-5">
+เพียงแชร์ต่อไปให้เพื่อน แล้วส่งข้อมูลให้แอดมิน ก็ได้รับเครดิตฟรีไปเลย 100 บาททันที!!
+</div>
+<button class="btn btn-primary w-50 share-btn mt-3" size="sm" onclick="sendShare()">แชร์</button>
+</div>
+</div>
+<script charset="utf-8" src="/js/bootstrap.bundle.min.js"></script>
+<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<script>
+      const siteName = 'wowslot369'
+      const lineUrl = 'https://lin.ee/6hjXQY9'
+      const registerUrl = 'https://huay24hr.github.io/auth'
+      const liffId = '1657118942-JvDje5yG'
 
+      async function sendShare() {
+        const result = await liff.shareTargetPicker([
+          {
+            "type": "flex",
+            "altText": `${siteName.toUpperCase()} แชร์ต่อรับเครดิตฟรี`,
+            "contents": {
+              "type": "bubble",
+              "hero": {
+                "type": "image",
+                "url": `https://app-pgslot-mc.web.app/${siteName}/line.jpg`,
+                "size": "full",
+                "aspectRatio": "1.91:1",
+                "action": {
+                  "type": "uri",
+                  "uri": lineUrl
+                }
+              },
+              "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": siteName.toUpperCase(),
+                    "size": "xl",
+                    "weight": "bold",
+                    "align": "center"
+                  },
+                  {
+                    "type": "text",
+                    "text": "แจกฟรี 100 บาทรวมทุกเกมสล็อตออนไลน์เล่นได้ทุกค่ายครบจบในเว็ปเดียว",
+                    "size": "sm",
+                    "align": "center",
+                    "color": "#c59292",
+                    "wrap": true
+                  }
+                ]
+              },
+              "footer": {
+                "type": "box",
+                "layout": "horizontal",
+                "spacing": "md",
+                "contents": [
+                  {
+                    "type": "button",
+                    "style": "primary",
+                    "action": {
+                      "type": "uri",
+                      "label": "สมัครสมาชิก",
+                      "uri": registerUrl
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "style": "primary",
+                    "action": {
+                      "type": "uri",
+                      "label": "แชร์เลย",
+                      "uri": `https://liff.line.me/${liffId}`
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ])
+
+        if (result) {
+          liff.closeWindow()
+        }
+      }
+
+      async function main() {
+        await liff.init({ liffId: "1657118942-JvDje5yG" })
+        if (!liff.isLoggedIn()) {
+          liff.login()
+        }
+      }
+      main()
+    </script>
